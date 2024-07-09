@@ -1,0 +1,29 @@
+### Register a new association
+POST http://localhost:3001/api/auth/register
+Content-Type: application/json
+
+{
+  "nombre": "Test Association",
+  "email": "association@example.com",
+  "password": "password123",
+  "ciudad": "La Mojonera",
+  "pais": "Test Country"
+}
+
+### Login to get a JWT token
+POST http://localhost:3001/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "association@example.com",
+  "password": "password123"
+}
+
+###
+POST http://localhost:3001/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "updatedassociation@example.com",
+  "password": "password123"
+}

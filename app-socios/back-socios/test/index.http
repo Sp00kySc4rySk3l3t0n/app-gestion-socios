@@ -1,0 +1,21 @@
+### Get all associations
+GET http://localhost:3001/api/asociacion
+
+### Get a specific association by ID
+GET http://localhost:3001/api/asociacion/668bca7a5443e21ecb07d7a5
+
+### Update an association
+PUT http://localhost:3001/api/asociacion/668bd380e657f4eacb2d1216
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjhiZDM4MGU2NTdmNGVhY2IyZDEyMTYiLCJsb2ciOiJhc3NvY2lhdGlvbiIsImlhdCI6MTcyMDQzOTY4MCwiZXhwIjoxNzIwNDQ2ODgwfQ.EbAea96ycR28X8Qwi58RMpiPDyoVI64YibMev1nlehQ
+
+{
+  "nombre": "Updated Association",
+  "email": "updatedassociation@example.com",
+  "ciudad": "Updated City",
+  "pais": "Updated Country"
+}
+
+### Delete an association
+DELETE http://localhost:3001/api/asociacion/668bd380e657f4eacb2d1216
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjhiZDM4MGU2NTdmNGVhY2IyZDEyMTYiLCJsb2ciOiJhc3NvY2lhdGlvbiIsImlhdCI6MTcyMDQzOTY4MCwiZXhwIjoxNzIwNDQ2ODgwfQ.EbAea96ycR28X8Qwi58RMpiPDyoVI64YibMev1nlehQ
