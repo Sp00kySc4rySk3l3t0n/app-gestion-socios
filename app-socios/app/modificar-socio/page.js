@@ -18,12 +18,14 @@ const ModificarSocio = () => {
   });
 
   useEffect(() => {
-    const savedSocios = JSON.parse(localStorage.getItem('socios')) || [];
-    const socioToEdit = savedSocios.find(s => s.id === parseInt(id));
-    if (socioToEdit) {
-      setSocio(socioToEdit);
-    } else {
-      router.push('/gestion-socios');
+    if (typeof window !== "undefined") {
+      const savedSocios = JSON.parse(localStorage.getItem('socios')) || [];
+      const socioToEdit = savedSocios.find(s => s.id === parseInt(id));
+      if (socioToEdit) {
+        setSocio(socioToEdit);
+      } else {
+        router.push('/gestion-socios');
+      }
     }
   }, [id, router]);
 
