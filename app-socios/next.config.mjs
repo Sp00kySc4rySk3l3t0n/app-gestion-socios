@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  experimental: {
+    missingSuspenseWithCSRBailout: true,
+  },
   images: {
     domains: ['fonts.gstatic.com'],
   },
