@@ -1,6 +1,7 @@
 "use client";
-import { useState, useEffect, Suspense } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
+import SuspenseWrapper from '../../components/SuspenseWrapper';
 
 const ModificarSocio = () => {
   const router = useRouter();
@@ -43,7 +44,7 @@ const ModificarSocio = () => {
   };
 
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <SuspenseWrapper>
       <div className="max-w-2xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
         <h1 className="text-3xl font-bold mb-6 text-blue-500 text-center">Modificar Socio</h1>
         <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
@@ -140,7 +141,7 @@ const ModificarSocio = () => {
           </div>
         </form>
       </div>
-    </Suspense>
+    </SuspenseWrapper>
   );
 };
 
