@@ -1,6 +1,5 @@
-// app/modificar-socio/page.js
 "use client";
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 
 const ModificarSocio = () => {
@@ -42,10 +41,10 @@ const ModificarSocio = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 py-8 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-2xl w-full bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+    <Suspense fallback={<div>Loading...</div>}>
+      <div className="max-w-2xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
         <h1 className="text-3xl font-bold mb-6 text-blue-500 text-center">Modificar Socio</h1>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
           <div className="mb-4">
             <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="nombre">
               Nombre
@@ -139,7 +138,7 @@ const ModificarSocio = () => {
           </div>
         </form>
       </div>
-    </div>
+    </Suspense>
   );
 };
 
