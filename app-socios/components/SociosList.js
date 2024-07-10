@@ -1,7 +1,8 @@
-// components/SociosList.js
 "use client"
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import PdfGenerator from './PdfGenerator';
+import CarnetGenerator from './CarnetGenerator';
 
 const SociosList = () => {
   const [socios, setSocios] = useState([]);
@@ -17,7 +18,7 @@ const SociosList = () => {
   };
 
   const añadirSocio = () => {
-    const nuevoSocio = { id: socios.length + 1, nombre: `Nuevo Socio ${socios.length + 1}` };
+    const nuevoSocio = { id: socios.length + 1, nombre: `Nuevo Socio ${socios.length + 1}`, apellido: '', telefono: '', direccion: '' };
     const newSocios = [...socios, nuevoSocio];
     setSocios(newSocios);
     saveSociosToLocalStorage(newSocios);
@@ -30,18 +31,7 @@ const SociosList = () => {
   };
 
   const modificarSocio = (id) => {
-    const nombreModificado = prompt('Ingrese el nuevo nombre del socio:');
-    const newSocios = socios.map(socio => socio.id === id ? { ...socio, nombre: nombreModificado } : socio);
-    setSocios(newSocios);
-    saveSociosToLocalStorage(newSocios);
-  };
-
-  const imprimirSocio = (id) => {
-    alert(`Imprimir información del socio con ID: ${id}`);
-  };
-
-  const generarCarnet = (id) => {
-    alert(`Generar carnet para el socio con ID: ${id}`);
+    router.push(`/modificar-socio?id=${id}`);
   };
 
   const downloadSocios = () => {
@@ -103,7 +93,7 @@ const SociosList = () => {
                 <td className="border px-6 py-4">{socio.id}</td>
                 <td className="border px-6 py-4">{socio.nombre}</td>
                 <td className="border px-6 py-4">
-                  <div className="flex flex-wrap justify-center sm:justify-start space-x-2">
+                  <div className="flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0 sm:space-x-2">
                     <button
                       className="bg-yellow-500 text-white px-2 py-1 rounded w-full sm:w-auto"
                       onClick={() => modificarSocio(socio.id)}
@@ -116,18 +106,8 @@ const SociosList = () => {
                     >
                       Eliminar
                     </button>
-                    <button
-                      className="bg-green-500 text-white px-2 py-1 rounded w-full sm:w-auto"
-                      onClick={() => imprimirSocio(socio.id)}
-                    >
-                      Imprimir
-                    </button>
-                    <button
-                      className="bg-purple-500 text-white px-2 py-1 rounded w-full sm:w-auto"
-                      onClick={() => generarCarnet(socio.id)}
-                    >
-                      Carnet
-                    </button>
+                    <PdfGenerator socio={socio} />
+                    <CarnetGenerator socio={socio} />
                   </div>
                 </td>
               </tr>
