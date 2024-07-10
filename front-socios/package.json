@@ -6,7 +6,18 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "setup-and-run-windows": "setup-and-run.bat"
+  },
+  "build": {
+    "appId": "com.example.yourapp",
+    "files": [
+      "out/**/*",
+      "main.js"
+    ],
+    "directories": {
+      "buildResources": "assets"
+    }
   },
   "dependencies": {
     "next": "14.2.4",

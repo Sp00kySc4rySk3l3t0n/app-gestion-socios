@@ -1,4 +1,4 @@
-"use client"
+// app/gestion-socios/page.js
 import Navbar from '../../components/Navbar';
 import SociosList from '../../components/SociosList';
 
